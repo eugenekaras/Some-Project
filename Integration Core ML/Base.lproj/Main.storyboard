@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Integration_Core_ML" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D16-mD-6vM">
+                                <rect key="frame" x="135" y="707" width="123" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select Image"/>
+                                <connections>
+                                    <action selector="btnSelectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rjE-2H-gs8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hb-C3-hbG">
+                                <rect key="frame" x="118.66666666666667" y="774" width="155.66666666666663" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Apply DeeplabV3"/>
+                                <connections>
+                                    <action selector="btnApplyDeeplabV3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4r-Oz-WF0"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YZ8-vm-xlp">
+                                <rect key="frame" x="16" y="191" width="361" height="361"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="361" id="3VV-ec-hms"/>
+                                    <constraint firstAttribute="width" constant="361" id="S4f-u4-eeT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YZ8-vm-xlp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="132" id="3Tv-0l-YTl"/>
+                            <constraint firstItem="YZ8-vm-xlp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NtG-VT-q8q"/>
+                            <constraint firstItem="D16-mD-6vM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ywv-wK-v2o"/>
+                            <constraint firstItem="D16-mD-6vM" firstAttribute="top" secondItem="YZ8-vm-xlp" secondAttribute="bottom" constant="155" id="jEk-YQ-Vcf"/>
+                            <constraint firstItem="0hb-C3-hbG" firstAttribute="top" secondItem="D16-mD-6vM" secondAttribute="bottom" constant="32" id="mua-9A-fD4"/>
+                            <constraint firstItem="0hb-C3-hbG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o7m-hJ-unx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="img" destination="YZ8-vm-xlp" id="PJ4-tJ-GAp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
