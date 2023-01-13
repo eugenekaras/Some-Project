@@ -39,21 +39,34 @@
                                     <constraint firstAttribute="width" constant="361" id="S4f-u4-eeT"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T42-Rd-R54">
+                                <rect key="frame" x="16" y="577" width="361" height="20.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="QHz-3L-stV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YZ8-vm-xlp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="132" id="3Tv-0l-YTl"/>
+                            <constraint firstItem="T42-Rd-R54" firstAttribute="top" secondItem="YZ8-vm-xlp" secondAttribute="bottom" constant="25" id="GR7-dl-zgp"/>
                             <constraint firstItem="YZ8-vm-xlp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NtG-VT-q8q"/>
+                            <constraint firstItem="T42-Rd-R54" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YCG-nr-ukG"/>
                             <constraint firstItem="D16-mD-6vM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ywv-wK-v2o"/>
                             <constraint firstItem="D16-mD-6vM" firstAttribute="top" secondItem="YZ8-vm-xlp" secondAttribute="bottom" constant="155" id="jEk-YQ-Vcf"/>
                             <constraint firstItem="0hb-C3-hbG" firstAttribute="top" secondItem="D16-mD-6vM" secondAttribute="bottom" constant="32" id="mua-9A-fD4"/>
                             <constraint firstItem="0hb-C3-hbG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o7m-hJ-unx"/>
+                            <constraint firstItem="D16-mD-6vM" firstAttribute="top" secondItem="T42-Rd-R54" secondAttribute="bottom" constant="109.66666666666663" id="rod-Mr-hOv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnApplyDeeplabV3" destination="0hb-C3-hbG" id="rtj-Pq-sHE"/>
                         <outlet property="img" destination="YZ8-vm-xlp" id="PJ4-tJ-GAp"/>
+                        <outlet property="postLabel" destination="T42-Rd-R54" id="fMz-qQ-V7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
