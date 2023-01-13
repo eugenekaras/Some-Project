@@ -6,27 +6,44 @@
 //
 
 import UIKit
+import Combine
+
+
+//struct BlogPost {
+//    let title: String
+//    let url: URL
+//}
+//extension Notification.Name {
+//    static let newBlogPost = Notification.Name("newBlogPost")
+//}
+
 
 class ViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-    
-     let buttonSelectImage = UIButton()
+ 
 
     @IBOutlet weak var img: UIImageView!
-
     
+    @IBOutlet weak var btnApplyDeeplabV3: UIButton!
+    
+    @Published var canApplyDeeplabV3: Bool = false
+    
+    private var subscriptions = Set<AnyCancellable>()
+ 
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        $canApplyDeeplabV3.receive(on: DispatchQueue.main).assign(to: \.isEnabled, on: btnApplyDeeplabV3)
         
-//        self.buttonSelectImage.frame = CGRect(x: 100, y: 100, width: 200, height: 100)
-//        self.buttonSelectImage.backgroundColor = UIColor.orange
-//        self.buttonSelectImage.setTitle("Select image", for: .normal)
-//        self.buttonSelectImage.setTitle("Select image", for: .highlighted)
-//        self.view.addSubview(buttonSelectImage)
-//        
-//        self.buttonSelectImage.addTarget(self, action: #selector(btnSelectImage2(target:)), for: .valueChanged)
+        subscriptions = [
+            $canApplyDeeplabV3.assign(to: \.isEnabled, on: btnApplyDeeplabV3)
+        ]
         
- 
+    }
+    
+    private func setupCombine() {
+//        let blogPostPublisher = NotificationCenter.Publisher(center: .default, name: .newBlogPost)
+//        let postLabelSubscriber = Sub
     }
 
     @IBAction func btnSelectImage(_ sender: UIButton) {
@@ -36,29 +53,25 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UIImagePic
         imageController.sourceType = .photoLibrary
         
         self.present(imageController, animated: true, completion: nil)
-        
+  
     }
-//    @objc func btnSelectImage2( target: UIButton) {
-//        let imageController = UIImagePickerController()
-//
-//        imageController.delegate = self
-//        imageController.sourceType = .photoLibrary
-//
-//        self.present(imageController, animated: true, completion: nil)
-//
-//    }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        img.image = info[.originalImage] as!UIImage
+        img.image = info[.originalImage] as?UIImage
         
-        self.dismiss(animated: true)
-    }
-    
-    @IBAction func btnApplyDeeplabV3(_ sender: UIButton) {
-    }
-    
+        canApplyDeeplabV3 = (img.image != nil)
 
+        self.dismiss(animated: true)
+  
+    }
+    
+ 
+ 
+    @IBAction func btnApplyDeeplabV3Tapped(_ sender: UIButton) {
+        print("okkkk")
+    }
+    
     
 }
 
